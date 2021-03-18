@@ -1,0 +1,90 @@
+@{ 
+    ViewBag.Title = "Sign in"; 
+}
+
+@model AspNetCore31Dashboard.LoginData
+
+@using DevExpress.DashboardWeb
+
+<style type="text/css">
+    .roleTable td, .roleTable th {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+
+<h1>DashboardUserBased Example</h1>
+<p>Select a user or leave the combo box empty to view the dashboards unauthorized:</p>
+
+@using (Html.BeginForm()) {
+    @(Html.DevExtreme().SelectBoxFor(m => m.UserName)
+        .Placeholder("Select User")
+        .ShowClearButton(true)
+        .Items(items => {
+            items.Add().Text("Admin");
+            items.Add().Text("User");
+            items.Add().Text("Guest");
+        })
+        .ValueExpr("text")
+        .DisplayExpr("text")
+    )
+    <br />
+    @(Html.DevExtreme().Button()
+        .ID("btnSubmit")
+        .Text("Sign in")
+        .UseSubmitBehavior(true)
+    )
+}
+
+<hr />
+<table class="roleTable">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>Dashboard Storage</th>
+            <th>DataSource Storage</th>
+            <th>ConnectionString Provider</th>
+            <th>DBSchema Provider</th>
+            <th>Working Mode</th>
+            <th>Create/Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Admin</td>
+            <td>dashboard1_admin, dashboard2_admin</td>
+            <td>SqlDataSource, JsonDataSource</td>
+            <td>Northwind, CarsXtraScheduling</td>
+            <td>All (Categories, Products, Cars,...)</td>
+            <td>Designer, Viewer</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>User</td>
+            <td>dashboard1_user</td>
+            <td>SqlDataSource</td>
+            <td>CarsXtraScheduling</td>
+            <td>Cars</td>
+            <td>Designer, Viewer</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Guest</td>
+            <td>dashboard1_guest</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>ViewerOnly</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Unauthorized</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>ViewerOnly</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>

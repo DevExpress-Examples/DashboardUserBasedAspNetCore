@@ -1,0 +1,62 @@
+<Dashboard>
+  <Title Text="Cars (User)" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source" ComponentName="sqlDataSource1">
+      <Connection Name="CarsXtraSchedulingConnectionString" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="Cars">
+        <Tables>
+          <Table Name="Cars" />
+        </Tables>
+        <Columns>
+          <AllColumns Table="Cars" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Cars" DataSource="sqlDataSource1" DataMember="Cars">
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Dimension DataMember="ID" DefaultId="DataItem0" />
+        <Dimension DataMember="Model" DefaultId="DataItem1" />
+        <Dimension DataMember="Trademark" DefaultId="DataItem3" />
+        <Measure DataMember="Price" DefaultId="DataItem4" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Weight="6.8783068783068781">
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="33.597883597883595">
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+        <GridDimensionColumn Weight="55.026455026455025">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Weight="31.834215167548496">
+          <Measure DefaultId="DataItem4" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions ColumnWidthMode="Manual" />
+    </Grid>
+    <Grid ComponentName="gridDashboardItem2" Name="Grid 2" ShowCaption="false" DataSource="sqlDataSource1" DataMember="Cars">
+      <DataItems>
+        <Dimension DataMember="Description" DefaultId="DataItem0" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions WordWrap="true" />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="1.128935532233883" />
+        <LayoutItem DashboardItem="gridDashboardItem2" Weight="0.871064467766117" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
