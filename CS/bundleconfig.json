@@ -27,7 +27,8 @@
       "node_modules/devextreme/dist/js/dx.all.js",
       "node_modules/@devexpress/analytics-core/dist/js/dx-analytics-core.min.js",
       "node_modules/@devexpress/analytics-core/dist/js/dx-querybuilder.min.js",
-      "node_modules/devexpress-dashboard/dist/js/dx-dashboard.min.js"
+      "node_modules/devexpress-dashboard/dist/js/dx-dashboard.min.js",
+      "node_modules/devextreme/dist/js/dx.aspnet.mvc.js"
     ],
     "minify": {
       "enabled": false

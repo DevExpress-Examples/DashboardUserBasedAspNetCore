@@ -4,18 +4,18 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
 public class CustomConnectionStringProvider : IDataSourceWizardConnectionStringsProvider {
-    private readonly IHttpContextAccessor сontextAccessor;
+    private readonly IHttpContextAccessor contextAccessor;
     private Dictionary<string, string> connectionStrings = new Dictionary<string, string>();
 
     public CustomConnectionStringProvider(IHttpContextAccessor contextAccessor) {
-        this.сontextAccessor = contextAccessor;
+        this.contextAccessor = contextAccessor;
         connectionStrings.Add("NorthwindConnectionString", @"XpoProvider=SQLite; Data Source=App_Data/nwind.db;");
         connectionStrings.Add("CarsXtraSchedulingConnectionString", @"XpoProvider=SQLite;Data Source=App_Data/CarsDB.db;");
     }
 
     public Dictionary<string, string> GetConnectionDescriptions() {
         var connections = new Dictionary<string, string>();
-        var userName = сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+        var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
         if (userName == "Admin") {
             connections.Add("NorthwindConnectionString", "Northwind Connection");

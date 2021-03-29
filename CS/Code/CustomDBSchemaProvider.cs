@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Http;
 using System.Linq;
 
 public class CustomDBSchemaProvider : DBSchemaProviderEx {
-    private readonly IHttpContextAccessor сontextAccessor;
+    private readonly IHttpContextAccessor contextAccessor;
 
     public CustomDBSchemaProvider(IHttpContextAccessor contextAccessor) : base() {
-        this.сontextAccessor = contextAccessor;
+        this.contextAccessor = contextAccessor;
     }
     
     public override DBTable[] GetTables(SqlDataConnection connection, params string[] tableList) {
         var result = base.GetTables(connection, tableList);
 
-        var userName = this.сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+        var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
         if (userName == "Admin") {
             return result;

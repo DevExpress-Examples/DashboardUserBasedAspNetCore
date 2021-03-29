@@ -8,7 +8,7 @@ using System.Linq;
 using System.Xml.Linq;
 
 public class CustomDataSourceStorage : IDataSourceStorage {
-    private readonly IHttpContextAccessor сontextAccessor;
+    private readonly IHttpContextAccessor contextAccessor;
 
     private Dictionary<string, XDocument> documents = new Dictionary<string, XDocument>();
 
@@ -17,7 +17,7 @@ public class CustomDataSourceStorage : IDataSourceStorage {
     private const string jsonDataSourceId = "JSON Data Source";
 
     public CustomDataSourceStorage(IHttpContextAccessor contextAccessor) {
-        this.сontextAccessor = contextAccessor;
+        this.contextAccessor = contextAccessor;
 
         DashboardSqlDataSource sqlDataSource1 = new DashboardSqlDataSource(sqlDataSourceId1, "NorthwindConnectionString");
         SelectQuery query1 = SelectQueryFluentBuilder
@@ -57,7 +57,7 @@ public class CustomDataSourceStorage : IDataSourceStorage {
     }
 
     public IEnumerable<string> GetDataSourcesID() {
-        var userName = сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+        var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
         if (userName == "Admin") {
             return documents.Keys;

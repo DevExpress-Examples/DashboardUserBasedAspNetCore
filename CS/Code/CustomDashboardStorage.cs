@@ -7,11 +7,11 @@ using System.Linq;
 using System.Xml.Linq;
 
 public class CustomDashboardStorage : IEditableDashboardStorage {
-    private readonly IHttpContextAccessor сontextAccessor;
+    private readonly IHttpContextAccessor contextAccessor;
     private string dashboardStorageFolder;
 
     public CustomDashboardStorage(IWebHostEnvironment hostingEnvironment, IHttpContextAccessor contextAccessor) {
-        this.сontextAccessor = contextAccessor;
+        this.contextAccessor = contextAccessor;
         this.dashboardStorageFolder = hostingEnvironment.ContentRootFileProvider.GetFileInfo("App_Data/Dashboards").PhysicalPath;
     }
 
@@ -22,7 +22,7 @@ public class CustomDashboardStorage : IEditableDashboardStorage {
 
         foreach (var item in files) {
             var name = Path.GetFileNameWithoutExtension(item);
-            var userName = сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+            var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
             if (!string.IsNullOrEmpty(userName) && name.EndsWith(userName, System.StringComparison.InvariantCultureIgnoreCase))
                 dashboardInfos.Add(new DashboardInfo() { ID = name, Name = name });
@@ -43,7 +43,7 @@ public class CustomDashboardStorage : IEditableDashboardStorage {
     }
 
     public string AddDashboard(XDocument dashboard, string dashboardName) {
-        var userName = сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+        var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
         if (string.IsNullOrEmpty(userName) || userName != "Admin")
             throw new System.ApplicationException("You are not authorized to add dashboards.");
@@ -56,7 +56,7 @@ public class CustomDashboardStorage : IEditableDashboardStorage {
     }
 
     public void SaveDashboard(string dashboardID, XDocument dashboard) {
-        var userName = сontextAccessor.HttpContext.Session.GetString("CurrentUser");
+        var userName = contextAccessor.HttpContext.Session.GetString("CurrentUser");
 
         if (string.IsNullOrEmpty(userName) || userName != "Admin")
             throw new System.ApplicationException("You are not authorized to save dashboards.");
