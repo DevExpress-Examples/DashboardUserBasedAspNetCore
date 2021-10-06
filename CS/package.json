@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0",
-  "name": "asp.net",
-  "private": true,
-  "devDependencies": {
-    "devextreme": "20.2-next",
-    "@devexpress/analytics-core": "20.2-next",
-    "devexpress-dashboard": "20.2-next",
-    "jquery-ui-dist": "^1.12.1"
-  }
+    "version": "1.0.0",
+    "name": "asp.net",
+    "private": true,
+    "devDependencies": {
+        "devextreme": "^21.2.2-alpha-21246-1323",
+        "@devexpress/analytics-core": "^21.2.2-alpha-21246-1323",
+        "devexpress-dashboard": "^21.2.2-alpha-21246-1323",
+        "jquery-ui-dist": "^1.12.1"
+    }
 }

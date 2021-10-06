@@ -27,6 +27,7 @@
     @Html.ActionLink("Sign out", "Index")
 
     @(Html.DevExpress().Dashboard("Dashboard")
+        .ControllerName("DefaultDashboard")
         .OnBeforeRender("onBeforeRender")
         .WorkingMode(userName == "Admin" || userName == "User" ? WorkingMode.Viewer : WorkingMode.ViewerOnly)
     )

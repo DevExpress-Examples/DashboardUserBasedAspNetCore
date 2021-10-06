@@ -4,8 +4,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.0" />
-    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.2.6" />
-    <PackageReference Include="DevExpress.AspNetCore.Dashboard" Version="20.2.9" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="21.2.2-alpha-21246-1323" />
+    <PackageReference Include="DevExpress.AspNetCore.Dashboard" Version="21.2.2-pre-21250" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.7" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
   </ItemGroup>
@@ -31,7 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="LibraryManagerRestore" Condition=" '$(Configuration)' == 'Debug' And !Exists('node_modules') ">
     <!-- Ensure Node.js is installed -->
