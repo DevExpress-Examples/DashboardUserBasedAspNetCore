@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 
 namespace AspNetCore31Dashboard {
     public class Startup {
@@ -23,7 +25,14 @@ namespace AspNetCore31Dashboard {
             // Configures services to use the Web Dashboard Control.
             services
                 .AddDevExpressControls()
-                .AddControllersWithViews();
+                .AddControllersWithViews()
+                .ConfigureApplicationPartManager((manager) => {
+                    var dashboardApplicationParts = manager.ApplicationParts.Where(part =>
+                        part is AssemblyPart && ((AssemblyPart)part).Assembly == typeof(DashboardController).Assembly).ToList();
+                    foreach (var partToRemove in dashboardApplicationParts) {
+                        manager.ApplicationParts.Remove(partToRemove);
+                    }
+                });
 
             services.AddSession();
             services.AddHttpContextAccessor();
