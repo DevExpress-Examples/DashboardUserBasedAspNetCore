@@ -1,6 +1,6 @@
 using System;
 
-namespace AspNetCore31Dashboard.Models {
+namespace AspNetCoreDashboard.Models {
     public class ErrorViewModel {
         public string RequestId { get; set; }
 

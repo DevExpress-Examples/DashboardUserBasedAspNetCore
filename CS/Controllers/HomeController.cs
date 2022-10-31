@@ -1,10 +1,10 @@
-﻿using AspNetCore31Dashboard.Models;
+﻿using AspNetCoreDashboard.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace AspNetCore31Dashboard.Controllers {
+namespace AspNetCoreDashboard.Controllers {
     public class HomeController : Controller {
         private readonly ILogger<HomeController> _logger;
 

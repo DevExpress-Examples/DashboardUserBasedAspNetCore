@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace AspNetCore31Dashboard {
+namespace AspNetCoreDashboard {
     public class MultiTenantDashboardConfigurator : DashboardConfigurator {
         private readonly IHttpContextAccessor contextAccessor;
         

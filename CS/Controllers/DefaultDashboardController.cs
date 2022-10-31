@@ -2,7 +2,7 @@
 using DevExpress.DashboardWeb;
 using Microsoft.AspNetCore.DataProtection;
 
-namespace AspNetCore31Dashboard.Controllers {
+namespace AspNetCoreDashboard.Controllers {
     public class DefaultDashboardController : DashboardController {
         public DefaultDashboardController(DashboardConfigurator configurator, IDataProtectionProvider dataProtectionProvider = null)
          : base(configurator, dataProtectionProvider) {
