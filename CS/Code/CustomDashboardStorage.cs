@@ -1,4 +1,4 @@
-﻿using DevExpress.DashboardWeb;
+using DevExpress.DashboardWeb;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;

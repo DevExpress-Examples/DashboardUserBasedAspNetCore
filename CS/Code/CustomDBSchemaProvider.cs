@@ -1,4 +1,4 @@
-﻿using DevExpress.DataAccess.Sql;
+using DevExpress.DataAccess.Sql;
 using DevExpress.Xpo.DB;
 using Microsoft.AspNetCore.Http;
 using System.Linq;

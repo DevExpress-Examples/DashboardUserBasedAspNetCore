@@ -1,4 +1,4 @@
-﻿using DevExpress.DataAccess.ConnectionParameters;
+using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.Web;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
